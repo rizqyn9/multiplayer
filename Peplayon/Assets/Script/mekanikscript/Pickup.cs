@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 namespace wahyu
 {
@@ -12,6 +11,7 @@ namespace wahyu
         private Motion motion;
         private UI ui;
         private DetectChild detect;
+        private Manager manager;
 
         public int indexItem;
         public float defaultSpeed;
@@ -35,6 +35,7 @@ namespace wahyu
                 motion = GameObject.FindGameObjectWithTag("Player").GetComponent<Motion>();
                 ui = GameObject.FindGameObjectWithTag("GameManager").GetComponent<UI>();
                 detect = GameObject.FindGameObjectWithTag("IndicatorPoint").GetComponent<DetectChild>();
+                manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Manager>();
                 Debug.Log("hit");
 
                 if (indexItem == 1)
@@ -58,6 +59,21 @@ namespace wahyu
 
                     Debug.Log("translucent");
                 }
+                else if (indexItem == 4)
+                {
+                    Slower();
+                    ui.setIndicatorItem(3);
+
+                    Debug.Log("sllower");
+                }
+                else if (indexItem == 5)
+                {
+                    Respawn();
+                    Destroy(other.gameObject);
+                    ui.setIndicatorItem(4);
+
+                    Debug.Log("Respawn");
+                }
 
                 mes.enabled = false;
                 coll.enabled = false;
@@ -67,6 +83,11 @@ namespace wahyu
         #endregion MonobehaviourCallBack
 
         #region Public Method
+
+        public void Respawn()
+        {
+            manager.SpawnCharacter();
+        }
 
         public void Faster()
         {
@@ -83,6 +104,11 @@ namespace wahyu
             StartCoroutine(setTranslucent());
         }
 
+        public void Slower()
+        {
+            StartCoroutine(setSlower());
+        }
+
         #endregion Public Method
 
         #region Private Method
@@ -90,6 +116,17 @@ namespace wahyu
         private IEnumerator setFaster()
         {
             motion.Speed = 20f;
+
+            yield return new WaitForSeconds(5f);
+
+            motion.Speed = defaultSpeed;
+            detect.ss();
+            Destroy(gameObject);
+        }
+
+        private IEnumerator setSlower()
+        {
+            motion.Speed = 2f;
 
             yield return new WaitForSeconds(5f);
 

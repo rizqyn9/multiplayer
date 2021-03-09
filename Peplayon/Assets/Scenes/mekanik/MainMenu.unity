@@ -346,7 +346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &404407574
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -540,8 +540,8 @@ Camera:
   m_GameObject: {fileID: 531481030}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.8301887, g: 0.15194014, b: 0.8266376, a: 0.98039216}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -675,7 +675,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -877,9 +877,10 @@ MonoBehaviour:
   PlayerPrefab:
   - {fileID: 4855104636776824743, guid: a9a9d75e2ebb306408b7fac81b9fe2ea, type: 3}
   - {fileID: 2729504567650690176, guid: 377766c6ebc5c0d41ba30955d1cafcf4, type: 3}
-  - {fileID: 6203788515811169144, guid: fd375124600621a45b15a74cc5e5da85, type: 3}
+  - {fileID: 977393639342658933, guid: c1320f37c2250254da1d8f9c12fe4f6e, type: 3}
   SpawnPoint: {fileID: 1483042100}
   Speed: 50
+  isSpawn: 0
 --- !u!1 &1215934143
 GameObject:
   m_ObjectHideFlags: 0
@@ -898,7 +899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1215934144
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1477,10 +1478,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1556,6 +1557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 0}
+  nextSceneIndex: 2
 --- !u!1 &2002113973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1640,7 +1642,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1997446610}
         m_TargetAssemblyTypeName: Matchmaking, Assembly-CSharp
-        m_MethodName: Join
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

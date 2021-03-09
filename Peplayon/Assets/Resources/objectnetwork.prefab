@@ -4449,6 +4449,7 @@ GameObject:
   - component: {fileID: 7973953912770259813}
   - component: {fileID: 7973953912770259834}
   - component: {fileID: 7474298968861049294}
+  - component: {fileID: 7941733452790299907}
   m_Layer: 0
   m_Name: objectnetwork
   m_TagString: Player
@@ -4509,6 +4510,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.06, y: 3.56, z: 1.48}
   m_Center: {x: 0, y: 0.94, z: 0}
+--- !u!114 &7941733452790299907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7973953912770259812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22e1b0a7426a71b4aa3ad6c0849b9cda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpForcs: 100
+  strafeSpeed: 10
+  Speed: 10
+  player: {fileID: 7973953912770259813}
+  rb: {fileID: 0}
+  cameraParent: {fileID: 7973953911382387349}
+  ProfilData:
+    username: default username
+    level: 0
+    exp: 0
+  playerusername: {fileID: 5924927484474287201}
+  isground: 0
+  rotationSpeed: 10
+  testing: 0
 --- !u!1 &7973953912851325525
 GameObject:
   m_ObjectHideFlags: 0
@@ -4764,13 +4791,17 @@ MonoBehaviour:
   jumpForcs: 6000
   strafeSpeed: 100
   Speed: 4
-  animator: {fileID: 7973953911295183230}
   player: {fileID: 7973953911914574268}
   rb: {fileID: 7973953912851325487}
   cameraParent: {fileID: 7973953911382387349}
+  ProfilData:
+    username: default username
+    level: 0
+    exp: 0
   playerusername: {fileID: 5924927484474287201}
   isground: 0
   rotationSpeed: 500
+  testing: 0
 --- !u!114 &7973953912851325484
 MonoBehaviour:
   m_ObjectHideFlags: 0

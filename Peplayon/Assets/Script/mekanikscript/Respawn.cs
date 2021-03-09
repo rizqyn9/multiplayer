@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 namespace wahyu
 {
@@ -17,6 +16,7 @@ namespace wahyu
             if (other.CompareTag("Player"))
             {
                 Debug.Log("respawn");
+
                 Manager manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Manager>();
                 manager.RespawnCharacter();
                 Destroy(other.gameObject);

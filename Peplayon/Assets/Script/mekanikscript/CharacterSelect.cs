@@ -8,16 +8,17 @@ namespace wahyu
 {
     public class CharacterSelect : MonoBehaviour
     {
-        #region variable
+        #region Variabel
 
-        public Slider slider;
+        /* public ManagerMenu manager;*/
         public GameObject LoadingScene;
+        public Slider slider;
 
-        #endregion variable
+        #endregion Variabel
 
         #region MonobehaviourCallBack
 
-        private void Start()
+        public void Start()
         {
         }
 
@@ -31,17 +32,16 @@ namespace wahyu
 
         private IEnumerator LoadAsynchronously(int sceneIndex)
         {
-            LoadingScene.SetActive(true);
-            yield return new WaitForSeconds(1f);
+            /*LoadingScene.SetActive(true);
+            yield return new WaitForSeconds(1f);*/
 
             AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 
             while (!operation.isDone)
             {
-                float progress = Mathf.Clamp01(operation.progress / 2f);
-                slider.value = progress;
-                yield return new WaitForSeconds(4f);
-                LoadingScene.SetActive(false);
+                /*float progress = Mathf.Clamp01(operation.progress / 2f);
+                slider.value = progress;*/
+                yield return null;
             }
         }
 
@@ -68,36 +68,42 @@ namespace wahyu
 
         public void Character_one()
         {
+            ManagerMenu manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ManagerMenu>();
             PlayerPrefs.DeleteAll();
             PlayerPrefs.SetInt("CharacterOne", 1);
-            LoadLevelOne(0);
-            PlayerPrefs.SetInt("ccc", 1);
+            manager.isSpawn = false;
+            manager.SpawnCharacter(0);
+            Debug.Log("1");
         }
 
         public void Character_two()
         {
+            ManagerMenu manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ManagerMenu>();
             PlayerPrefs.DeleteAll();
             PlayerPrefs.SetInt("CharacterTwo", 1);
-            LoadLevelOne(0);
-            PlayerPrefs.SetInt("ccc", 1);
+            manager.isSpawn = false;
+            manager.SpawnCharacter(1);
+            Debug.Log("2");
         }
 
         public void Character_tree()
         {
+            ManagerMenu manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ManagerMenu>();
             PlayerPrefs.DeleteAll();
             PlayerPrefs.SetInt("CharacterTree", 1);
-            LoadLevelOne(0);
-            PlayerPrefs.SetInt("ccc", 1);
+            manager.isSpawn = false;
+            manager.SpawnCharacter(2);
+            Debug.Log("3");
         }
 
         public void LoadLevelOne(int sceneIndex)
         {
-            StartCoroutine(LoadAsynchronously(sceneIndex));
+            StartCoroutine(LoadAsynchronously1(sceneIndex));
         }
 
         public void LoadMainMenu(int sceneIndex)
         {
-            StartCoroutine(LoadAsynchronously1(sceneIndex));
+            StartCoroutine(LoadAsynchronously(sceneIndex));
         }
 
         #endregion Public Method

@@ -1,20 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
+
 using System.Net.NetworkInformation;
 using TMPro;
 using UnityEngine.UI;
 
 namespace wahyu
 {
-    public class move : MonoBehaviourPunCallbacks
+    public class move : MonoBehaviour
 
     {
         public float jumpForcs;
         public float strafeSpeed;
         public float Speed;
-        public Animator animator;
+        /*  public Animator animator;*/
         public Transform player;
         public Rigidbody rb;
         public GameObject cameraParent;
@@ -36,17 +36,18 @@ namespace wahyu
             rb = GetComponent<Rigidbody>();
 
             cameraParent.SetActive(true);
-
-            if (testing == true)
-            {
-                if (photonView.IsMine)
-                {
-                    photonView.RPC("Syncprofile", RpcTarget.All, ConnectServer.myProfile.username, ConnectServer.myProfile.level, ConnectServer.myProfile.exp);
-                }
-            }
+            /*
+                        if (testing == true)
+                        {
+                            if (photonView.IsMine)
+                            {
+                                photonView.RPC("Syncprofile", RpcTarget.All, ConnectServer.myProfile.username, ConnectServer.myProfile.level, ConnectServer.myProfile.exp);
+                            }
+                        }*/
         }
 
-        [PunRPC]
+        /*  [PunRPC]*/
+
         private void Syncprofile(string username, int lvl, int xp)
         {
             ProfilData = new profilData(username, lvl, xp);
@@ -59,8 +60,6 @@ namespace wahyu
 
         private void FixedUpdate()
         {
-            if (!photonView.IsMine) return;
-
             #region
             /*if (Input.GetKey(KeyCode.W))
           {
@@ -116,11 +115,11 @@ namespace wahyu
 
                 player.transform.rotation = Quaternion.RotateTowards(player.transform.rotation, quaternion, rotationSpeed * Time.deltaTime);
 
-                animator.SetBool("walk", true);
+                /*  animator.SetBool("walk", true);*/
             }
             else
             {
-                animator.SetBool("walk", false);
+                /*animator.SetBool("walk", false);*/
             }
         }
     }

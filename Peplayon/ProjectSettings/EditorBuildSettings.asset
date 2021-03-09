@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/mekanik/Map.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/mekanik/Podium.unity
+    guid: 2ad74ca4451922c418fa52bc95e19508
   m_configObjects: {}

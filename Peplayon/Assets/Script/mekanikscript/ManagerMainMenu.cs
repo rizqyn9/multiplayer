@@ -1,23 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 namespace wahyu
 {
-    public class ManagerMainMenu : MonoBehaviourPunCallbacks
+    public class ManagerMainMenu : MonoBehaviour
     {
         #region variable
 
         public GameObject[] PlayerPrefab;
         public Transform SpawnPoint;
         public float Speed;
-        private GameObject tt;
+        private GameObject CurrentCharacter;
         private int CharacterOnSelect1;
         private int CharacterOnSelect2;
         private int CharacterOnSelect3;
-        private int ccc;
-        private bool isSpawn = false;
+
+        public bool isSpawn = false;
         private int selectRotate;
 
         #endregion variable
@@ -26,18 +25,14 @@ namespace wahyu
 
         private void Start()
         {
+            isSpawn = false;
             CharacterOnSelect1 = PlayerPrefs.GetInt("CharacterOne");
             CharacterOnSelect2 = PlayerPrefs.GetInt("CharacterTwo");
             CharacterOnSelect3 = PlayerPrefs.GetInt("CharacterTree");
-            ccc = PlayerPrefs.GetInt("ccc");
         }
 
         private void Update()
         {
-            if (ccc == 1)
-            {
-                isSpawn = false;
-            }
             if (CharacterOnSelect1 == 1)
             {
                 SpawnCharacterMainMenu(0);
@@ -71,14 +66,15 @@ namespace wahyu
         {
             if (!isSpawn)
             {
-                if (!tt)
+                if (!CurrentCharacter)
                 {
-                    Destroy(tt);
+                    Destroy(CurrentCharacter);
                 }
 
                 isSpawn = true;
-                ccc = 0;
-                tt = Instantiate(PlayerPrefab[select], SpawnPoint.position, SpawnPoint.rotation);
+
+                GameObject spawn = Instantiate(PlayerPrefab[select], SpawnPoint.position, SpawnPoint.rotation);
+                CurrentCharacter = spawn;
             }
         }
 

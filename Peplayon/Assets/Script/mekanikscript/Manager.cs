@@ -1,26 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 namespace wahyu
 {
-    public class Manager : MonoBehaviourPunCallbacks
+    public class Manager : MonoBehaviour
     {
         #region Variable
 
-        public string[] playerPrefab;
+        public GameObject[] playerPrefab;
         public Transform[] SpawnPoint;
-        public string[] Item;
+        public GameObject[] Item;
         public Transform[] SpawnItemPoint;
         public GameObject itemParent;
         public Vector3 lastCheckPoint;
+        public Transform obstaclepoint;
+        public Rigidbody obstacle;
 
         private int CharacterOneSelected;
         private int CharacterTwoSelected;
         private int CharacterTreeSelected;
         private int characterselect;
         private int TTF;
+        private bool isspawn = false;
+        private bool isitemspawn = false;
 
         #endregion Variable
 
@@ -30,7 +33,6 @@ namespace wahyu
         private void Start()
 
         {
-            if (!photonView.IsMine) return;
             CharacterOneSelected = PlayerPrefs.GetInt("CharacterOne");
             CharacterTwoSelected = PlayerPrefs.GetInt("CharacterTwo");
             CharacterTreeSelected = PlayerPrefs.GetInt("CharacterTree");
@@ -39,25 +41,23 @@ namespace wahyu
         // Update is called once per frame
         private void Update()
         {
-            if (!photonView.IsMine) return;
-            if (CharacterOneSelected == 1)
+            SpawnItem();
+
+            if (CharacterOneSelected == 1 && isspawn == false)
             {
-                SpawnItem();
-                CharacterOneSelected = 10;
+                isspawn = true;
                 characterselect = 0;
                 SpawnCharacter();
             }
-            else if (CharacterTwoSelected == 1)
+            else if (CharacterTwoSelected == 1 && isspawn == false)
             {
-                SpawnItem();
-                CharacterTwoSelected = 10;
+                isspawn = true;
                 characterselect = 1;
                 SpawnCharacter();
             }
-            else if (CharacterTreeSelected == 1)
+            else if (CharacterTreeSelected == 1 && isspawn == false)
             {
-                SpawnItem();
-                CharacterTreeSelected = 10;
+                isspawn = true;
                 characterselect = 2;
                 SpawnCharacter();
             }
@@ -74,26 +74,36 @@ namespace wahyu
 
         public void SpawnCharacter()
         {
-            if (!photonView.IsMine) return;
             Transform spawn = SpawnPoint[Random.Range(0, SpawnPoint.Length)];
-            PhotonNetwork.Instantiate(playerPrefab[characterselect], spawn.position, spawn.rotation);
+            Instantiate(playerPrefab[characterselect], spawn.position, spawn.rotation);
         }
 
         public void RespawnCharacter()
         {
             Respawn respawn = GameObject.FindGameObjectWithTag("Respawn").GetComponent<Respawn>();
-            if (!photonView.IsMine) return;
 
-            PhotonNetwork.Instantiate(playerPrefab[characterselect], lastCheckPoint, Quaternion.identity);
+            Instantiate(playerPrefab[characterselect], lastCheckPoint, Quaternion.identity);
         }
 
         public void SpawnItem()
         {
-            for (int a = 0; a <= 2; a++)
+            if (isitemspawn == false)
             {
-                int itemSpawn = Random.Range(0, Item.Length);
-                PhotonNetwork.Instantiate(Item[itemSpawn], SpawnItemPoint[a].position, SpawnItemPoint[a].rotation);
+                for (int a = 0; a <= 2; a++)
+                {
+                    isitemspawn = true;
+                    int itemSpawn = Random.Range(0, Item.Length);
+                    Instantiate(Item[itemSpawn], SpawnItemPoint[a].position, SpawnItemPoint[a].rotation);
+                }
+                return;
             }
+        }
+
+        public void SpawnObstacle()
+        {
+            Rigidbody ob = Instantiate(obstacle, obstaclepoint.position, obstaclepoint.rotation);
+
+            ob.AddForce(Vector3.right * 20f, ForceMode.VelocityChange);
         }
 
         #endregion Public Method

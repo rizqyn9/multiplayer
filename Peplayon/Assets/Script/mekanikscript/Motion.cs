@@ -15,10 +15,12 @@ namespace wahyu
 
         public float Speed;
         public float rotationSpeed;
-        public GameObject cameraParent;
         public float Jumping;
         public Transform grounded;
         public LayerMask ground;
+        public GameObject cameraPlayer;
+
+        public bool isClear = false;
 
         #endregion Variable
 
@@ -27,26 +29,23 @@ namespace wahyu
         // Start is called before the first frame update
         private void Start()
         {
-            if (Camera.main.enabled == true)
-            {
-                Camera.main.enabled = false;
-            }
-
             rb = GetComponent<Rigidbody>();
             /* cameraParent = GameObject.FindGameObjectWithTag("PlayerCamera") as GameObject;*/
-
-            cameraParent.SetActive(true);
         }
 
         // Update is called once per frame
         private void Update()
         {
+            if (isClear == true)
+            {
+                cameraPlayer.SetActive(true);
+            }
             float movex = Input.GetAxisRaw("Horizontal");
             float movey = Input.GetAxisRaw("Vertical");
             bool jump = Input.GetKeyDown(KeyCode.Space);
             bool isGround = Physics.Raycast(grounded.position, Vector3.down, 0.1f, ground);
 
-            bool isJumping = jump;
+            bool isJumping = jump && isGround;
 
             if (isJumping)
             {
