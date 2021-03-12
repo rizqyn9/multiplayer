@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 4855104636776824738}
   - component: {fileID: 515104088753780092}
   - component: {fileID: 4855104636776824736}
+  - component: {fileID: 1312956909559462477}
   m_Layer: 0
   m_Name: player2
   m_TagString: Player
@@ -370,14 +371,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
+  defaultsped: 10
   rotationSpeed: 500
-  Jumping: 400
+  Jumping: 600
   grounded: {fileID: 5213186208695749006}
   ground:
     serializedVersion: 2
     m_Bits: 256
   cameraPlayer: {fileID: 7721129012235300401}
   isClear: 0
+  animasi: 0
+  blend: 0
+  acceleration: 0
+  isJumping: 0
+  defaultspeed: 0
+--- !u!95 &1312956909559462477
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4855104636776824743}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 677a22eb20973554790a80dcce34ebcd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4855104637016668878
 GameObject:
   m_ObjectHideFlags: 0

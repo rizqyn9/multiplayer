@@ -21,7 +21,7 @@ namespace wahyu
         }
 
         // Update is called once per frame
-        private void FixedUpdate()
+        private void LateUpdate()
         {
             Vector3 desiredPosition = Player.position + Offset;
             /*Vector3 smoothPosition = Vector3.Lerp(transform.position, desiredPosition, SmoothSpeed);*/

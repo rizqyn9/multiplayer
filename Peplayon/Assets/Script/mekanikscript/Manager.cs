@@ -89,7 +89,7 @@ namespace wahyu
         {
             if (isitemspawn == false)
             {
-                for (int a = 0; a <= 2; a++)
+                for (int a = 0; a <= 6; a++)
                 {
                     isitemspawn = true;
                     int itemSpawn = Random.Range(0, Item.Length);

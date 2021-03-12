@@ -49,7 +49,7 @@ namespace wahyu
 
                 if (!freez)
                 {
-                    motion.Speed = 10f;
+                    motion.defaultspeed = true;
                 }
             }
             if (cut)

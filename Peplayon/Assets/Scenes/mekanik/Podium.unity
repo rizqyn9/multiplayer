@@ -1535,7 +1535,7 @@ MonoBehaviour:
   alas2: {fileID: 636357741}
   alas3: {fileID: 1735535067}
   PlayerPrefab:
-  - {fileID: 4855104636776824743, guid: a9a9d75e2ebb306408b7fac81b9fe2ea, type: 3}
+  - {fileID: 5808186097566386813, guid: 1d8691fb69547e7408238ad68bb69107, type: 3}
   - {fileID: 2729504567650690176, guid: 377766c6ebc5c0d41ba30955d1cafcf4, type: 3}
   - {fileID: 977393639342658933, guid: c1320f37c2250254da1d8f9c12fe4f6e, type: 3}
   SpawnPoint: {fileID: 1411402057}

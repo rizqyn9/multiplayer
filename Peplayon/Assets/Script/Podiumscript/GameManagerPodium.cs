@@ -43,7 +43,7 @@ public class GameManagerPodium : MonoBehaviour
         else if (CharacterOnSelect2 == 1)
         {
             SpawnCharacterPodium(1);
-            StartCoroutine(animation());
+
             if (ttt)
             {
                 StartCoroutine(animation());
@@ -53,7 +53,7 @@ public class GameManagerPodium : MonoBehaviour
         else
         {
             SpawnCharacterPodium(2);
-            StartCoroutine(animation());
+
             if (ttt)
             {
                 StartCoroutine(animation());

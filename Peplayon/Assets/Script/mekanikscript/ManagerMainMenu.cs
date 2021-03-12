@@ -54,8 +54,8 @@ namespace wahyu
                 selectRotate = 0;
             }
 
-            Transform getplayer = GameObject.FindGameObjectWithTag("Player").transform;
-            getplayer.transform.Rotate(0, Time.deltaTime * Speed, 0);
+            /*  Transform getplayer = GameObject.FindGameObjectWithTag("Player").transform;
+              getplayer.transform.Rotate(0, Time.deltaTime * Speed, 0);*/
         }
 
         #endregion MonobehaviourCallBack

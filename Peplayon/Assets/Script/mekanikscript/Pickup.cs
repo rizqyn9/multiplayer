@@ -68,11 +68,15 @@ namespace wahyu
                 }
                 else if (indexItem == 5)
                 {
-                    Respawn();
-                    Destroy(other.gameObject);
                     ui.setIndicatorItem(4);
+                    Respawwn(other);
 
                     Debug.Log("Respawn");
+                }
+                else if (indexItem == 6)
+                {
+                    Debug.Log("Zonk");
+                    Destroy(gameObject);
                 }
 
                 mes.enabled = false;
@@ -84,9 +88,9 @@ namespace wahyu
 
         #region Public Method
 
-        public void Respawn()
+        public void Respawwn(Collider tt)
         {
-            manager.SpawnCharacter();
+            StartCoroutine(setRespawn(tt));
         }
 
         public void Faster()
@@ -115,22 +119,34 @@ namespace wahyu
 
         private IEnumerator setFaster()
         {
-            motion.Speed = 20f;
+            /* Motion mm = GameObject.FindGameObjectWithTag("Player").GetComponent<Motion>();*/
+            motion.defaultsped = 20f;
 
             yield return new WaitForSeconds(5f);
 
-            motion.Speed = defaultSpeed;
+            motion.defaultsped = defaultSpeed;
             detect.ss();
             Destroy(gameObject);
         }
 
+        private IEnumerator setRespawn(Collider ttt)
+        {
+            yield return new WaitForSeconds(5f);
+
+            motion.defaultsped = defaultSpeed;
+            detect.ss();
+            Destroy(gameObject);
+            manager.SpawnCharacter();
+            Destroy(ttt.gameObject);
+        }
+
         private IEnumerator setSlower()
         {
-            motion.Speed = 2f;
+            motion.defaultsped = 2f;
 
             yield return new WaitForSeconds(5f);
 
-            motion.Speed = defaultSpeed;
+            motion.defaultsped = defaultSpeed;
             detect.ss();
             Destroy(gameObject);
         }

@@ -62,6 +62,11 @@ namespace wahyu
             StartCoroutine(LoadAsynchronously1(sceneIndex));
         }
 
+        public void exitgame()
+        {
+            Application.Quit();
+        }
+
         #endregion Public Method
     }
 }

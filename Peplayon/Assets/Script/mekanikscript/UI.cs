@@ -12,6 +12,7 @@ namespace wahyu
         private int index;
         private Canvas currentCanvasIndicator;
         private GameObject indicatoritempoint;
+        private Transform jj;
 
         public GameObject PauseMenu;
         public Canvas[] indicatoritem;
@@ -41,6 +42,12 @@ namespace wahyu
             }
         }
 
+        private void LateUpdate()
+        {
+            Transform camera = GameObject.FindGameObjectWithTag("PlayerCamera").GetComponent<Camera>().transform;
+            jj.LookAt(jj.position + camera.forward);
+        }
+
         #endregion MonobehaviourCallBack
 
         #region PrivateMethod
@@ -66,9 +73,10 @@ namespace wahyu
         public void setIndicatorItem(int cc)
         {
             indicatoritempoint = GameObject.FindGameObjectWithTag("IndicatorPoint") as GameObject;
-            Transform jj = indicatoritempoint.transform;
+            jj = indicatoritempoint.transform;
 
             Instantiate(indicatoritem[cc], jj.position, Quaternion.identity, jj);
+
             Debug.Log("j");
         }
 
