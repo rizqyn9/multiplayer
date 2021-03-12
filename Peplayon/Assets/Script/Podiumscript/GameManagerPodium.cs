@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class GameManagerPodium : MonoBehaviour
 {
+    #region Variable
+
     private GameObject CurrentCharacter;
     private int CharacterOnSelect1;
     private int CharacterOnSelect2;
     private int CharacterOnSelect3;
+    private bool ttt = true;
 
     public bool isSpawn = false;
     public GameObject alas1;
@@ -18,7 +21,10 @@ public class GameManagerPodium : MonoBehaviour
     public float Speed;
     public GameObject win;
     public GameObject mainmenu;
-    private bool ttt = true;
+
+    #endregion Variable
+
+    #region MonobehaviourCallBack
 
     // Start is called before the first frame update
     private void Start()
@@ -65,6 +71,10 @@ public class GameManagerPodium : MonoBehaviour
         getplayer.transform.Rotate(0, Time.deltaTime * Speed, 0);
     }
 
+    #endregion MonobehaviourCallBack
+
+    #region Private Method
+
     private IEnumerator animation()
     {
         LeanTween.init(1000);
@@ -100,4 +110,6 @@ public class GameManagerPodium : MonoBehaviour
             CurrentCharacter = spawn;
         }
     }
+
+    #endregion Private Method
 }
