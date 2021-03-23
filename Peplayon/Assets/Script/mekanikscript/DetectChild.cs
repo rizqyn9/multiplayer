@@ -10,7 +10,12 @@ namespace wahyu
         {
             foreach (Transform child in transform)
             {
-                Canvas.Destroy(child.gameObject);
+                if (transform)
+                {
+                    UI ui = GameObject.FindGameObjectWithTag("GameManager").GetComponent<UI>();
+                    ui.indicatoritemactive = false;
+                    Canvas.Destroy(child.gameObject);
+                }
             }
         }
     }

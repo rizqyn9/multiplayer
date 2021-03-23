@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/mekanik/MainMenu.unity
+- path: Assets/Scenes/mekanik/Map.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

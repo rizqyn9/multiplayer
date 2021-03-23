@@ -8,27 +8,28 @@ namespace wahyu
     {
         #region Variable
 
-        private Rigidbody rb;
-        /* private float sprintmodifier = 1.5f;
- */
-        private Vector3 movement;
+        public static Rigidbody rb;
+
+        public static Vector3 movement;
         private Animator anim;
 
         public float Speed;
         public float defaultsped;
         public float rotationSpeed;
         public float Jumping;
-        public Transform grounded;
+        public Transform leftfoot;
+        public Transform midlle;
+        public Transform rightfoot;
         public LayerMask ground;
         public GameObject cameraPlayer;
         public bool isClear = false;
         public bool animasi;
 
-        public float blend = 0.0f;
+        public static float blend = 0.0f;
         public float acceleration;
         public bool isJumping;
         public bool defaultspeed = false;
-
+        public bool isGround;
         private int blendtohas;
 
         #endregion Variable
@@ -41,6 +42,7 @@ namespace wahyu
             anim = GetComponent<Animator>();
             rb = GetComponent<Rigidbody>();
             blendtohas = Animator.StringToHash("Blend");
+
             /* cameraParent = GameObject.FindGameObjectWithTag("PlayerCamera") as GameObject;*/
         }
 
@@ -72,7 +74,18 @@ namespace wahyu
             float movex = Input.GetAxisRaw("Horizontal");
             float movey = Input.GetAxisRaw("Vertical");
             bool jump = Input.GetKeyDown(KeyCode.Space);
-            bool isGround = Physics.Raycast(grounded.position, Vector3.down, 0.1f, ground);
+            bool groundleft = Physics.Raycast(leftfoot.position, Vector3.down, 0.2f, ground);
+            bool groundright = Physics.Raycast(rightfoot.position, Vector3.down, 0.1f, ground);
+            bool groundmidlle = Physics.Raycast(midlle.position, Vector3.down, 0.1f, ground);
+
+            if (groundleft || groundright || groundmidlle)
+            {
+                isGround = true;
+            }
+            else
+            {
+                isGround = false;
+            }
 
             if (grab == true)
             {
@@ -96,6 +109,9 @@ namespace wahyu
             {
                 anim.SetBool("Jump", true);
                 rb.AddForce(Vector3.up * Jumping);
+            }
+            else
+            {
             }
 
             movement = new Vector3(movex, 0, movey);

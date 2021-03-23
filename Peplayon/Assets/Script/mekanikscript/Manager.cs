@@ -30,6 +30,7 @@ namespace wahyu
         #region MonobehaviourCallBack
 
         // Start is called before the first frame update
+
         private void Start()
 
         {
@@ -89,7 +90,7 @@ namespace wahyu
         {
             if (isitemspawn == false)
             {
-                for (int a = 0; a <= 6; a++)
+                for (int a = 0; a <= 5; a++)
                 {
                     isitemspawn = true;
                     int itemSpawn = Random.Range(0, Item.Length);

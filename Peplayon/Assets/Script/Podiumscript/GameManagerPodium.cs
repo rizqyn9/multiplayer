@@ -18,9 +18,11 @@ public class GameManagerPodium : MonoBehaviour
     public GameObject alas3;
     public GameObject[] PlayerPrefab;
     public Transform SpawnPoint;
+    public Transform[] spawnFirework;
     public float Speed;
     public GameObject win;
     public GameObject mainmenu;
+    public GameObject firework;
 
     #endregion Variable
 
@@ -29,6 +31,7 @@ public class GameManagerPodium : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         CharacterOnSelect1 = PlayerPrefs.GetInt("CharacterOne");
         CharacterOnSelect2 = PlayerPrefs.GetInt("CharacterTwo");
         CharacterOnSelect3 = PlayerPrefs.GetInt("CharacterTree");
@@ -88,11 +91,14 @@ public class GameManagerPodium : MonoBehaviour
         yield return new WaitForSeconds(1f);
         LeanTween.move(alas1, new Vector3(-8.83499993e-08f, -5.03000021f, 0), 1.5f);
         yield return new WaitForSeconds(1.5f);
+        Instantiate(firework, spawnFirework[0].position, spawnFirework[0].rotation);
+        Instantiate(firework, spawnFirework[1].position, spawnFirework[1].rotation);
         LeanTween.move(CurrentCharacter, new Vector3(0, 1, 0), 4f);
         yield return new WaitForSeconds(4f);
         win.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         mainmenu.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void SpawnCharacterPodium(int select)

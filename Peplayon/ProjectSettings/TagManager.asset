@@ -9,6 +9,8 @@ TagManager:
   - IndicatorPoint
   - IndicatorCanvas
   - item
+  - Ground
+  - Object
   layers:
   - Default
   - TransparentFX

@@ -54,11 +54,11 @@ namespace wahyu
             }
             if (cut)
             {
-                Motion motion = GameObject.FindGameObjectWithTag("Player").GetComponent<Motion>();
+                /* Motion motion = GameObject.FindGameObjectWithTag("Player").GetComponent<Motion>();
 
-                motion.Speed = 0f;
-                cut = false;
+                 motion.Speed = 0f;*/
                 StartCoroutine(cutscenestartgame());
+                cut = false;
             }
         }
 

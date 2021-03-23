@@ -15,11 +15,22 @@ namespace wahyu
         {
             if (other.CompareTag("Player"))
             {
+                Pickup pk = GameObject.FindGameObjectWithTag("item").GetComponent<Pickup>();
+                UI ui = GameObject.FindGameObjectWithTag("GameManager").GetComponent<UI>();
+                Manager manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Manager>();
                 Debug.Log("respawn");
 
-                Manager manager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Manager>();
-                manager.RespawnCharacter();
+                ui.UIeffect.SetActive(false);
+                pk.callbacktransculent();
+
+                pk.stopallCoroutine();
+                ui.destroyIndicatorItem();
+                pk.destroy();
+
                 Destroy(other.gameObject);
+
+                manager.RespawnCharacter();
+
                 camera.enabled = true;
             }
         }

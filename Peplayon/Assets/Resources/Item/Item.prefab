@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6460931478411032788}
   m_Layer: 0
   m_Name: Item
-  m_TagString: Untagged
+  m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,9 +108,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1792c5ef664ea2c44a0f74c110a643df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  indexItem: 1
+  fastereffect: {fileID: 2020862642553498559, guid: 4f5231aa27a53314f9c97c1d78503edb, type: 3}
+  respawneffect: {fileID: 2020862642553498559, guid: 4f5231aa27a53314f9c97c1d78503edb, type: 3}
+  biggereffect: {fileID: 2020862642553498559, guid: 4f5231aa27a53314f9c97c1d78503edb, type: 3}
+  slowerneffect: {fileID: 2020862642553498559, guid: 4f5231aa27a53314f9c97c1d78503edb, type: 3}
+  zonkneffect: {fileID: 2020862642553498559, guid: 4f5231aa27a53314f9c97c1d78503edb, type: 3}
+  indexItem: 0
   defaultSpeed: 10
   mes: {fileID: 6460931478411032790}
   coll: {fileID: 6460931478411032789}
   IndicatorItem: 0
-  defaultScale: {x: 0, y: 0, z: 0}
+  defaultScale: {x: 0.7, y: 0.7, z: 0.7}
