@@ -11,6 +11,7 @@ public class MovableObs : MonoBehaviour
 
     private bool isForward = true; //If the movement is out
     private Vector3 startPos;
+    public static bool ready;
 
     private void Awake()
     {
@@ -24,46 +25,49 @@ public class MovableObs : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (horizontal)
+        if (ready)
         {
-            if (isForward)
+            if (horizontal)
             {
-                if (transform.position.x < startPos.x + distance)
+                if (isForward)
                 {
-                    transform.position += Vector3.right * Time.deltaTime * speed;
+                    if (transform.position.x < startPos.x + distance)
+                    {
+                        transform.position += Vector3.right * Time.deltaTime * speed;
+                    }
+                    else
+                        isForward = false;
                 }
                 else
-                    isForward = false;
+                {
+                    if (transform.position.x > startPos.x)
+                    {
+                        transform.position -= Vector3.right * Time.deltaTime * speed;
+                    }
+                    else
+                        isForward = true;
+                }
             }
             else
             {
-                if (transform.position.x > startPos.x)
+                if (isForward)
                 {
-                    transform.position -= Vector3.right * Time.deltaTime * speed;
+                    if (transform.position.z < startPos.z + distance)
+                    {
+                        transform.position += Vector3.forward * Time.deltaTime * speed;
+                    }
+                    else
+                        isForward = false;
                 }
                 else
-                    isForward = true;
-            }
-        }
-        else
-        {
-            if (isForward)
-            {
-                if (transform.position.z < startPos.z + distance)
                 {
-                    transform.position += Vector3.forward * Time.deltaTime * speed;
+                    if (transform.position.z > startPos.z)
+                    {
+                        transform.position -= Vector3.forward * Time.deltaTime * speed;
+                    }
+                    else
+                        isForward = true;
                 }
-                else
-                    isForward = false;
-            }
-            else
-            {
-                if (transform.position.z > startPos.z)
-                {
-                    transform.position -= Vector3.forward * Time.deltaTime * speed;
-                }
-                else
-                    isForward = true;
             }
         }
     }

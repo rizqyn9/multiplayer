@@ -20,6 +20,12 @@ TagManager:
   - Tes
   - MultiplayerItemSpawn
   - Item
+  - Ground
+  - Dust
+  - DustMultiplayer
+  - tesui
+  - Camera1
+  - Camera2
   layers:
   - Default
   - TransparentFX
@@ -27,7 +33,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 

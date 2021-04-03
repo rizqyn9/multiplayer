@@ -135,10 +135,14 @@ MonoBehaviour:
   jumpHeight: 5
   maxFallSpeed: 20
   rotateSpeed: 25
-  animSpedd: 1
+  animSpedd: 2
   checkPoint: {x: 0, y: 0, z: 0}
+  blend: 0
   anim: {fileID: 29126253348160685}
   Animation: 0
+  ground:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &933151944891979184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,7 +172,7 @@ CapsuleCollider:
   m_Radius: 1.46
   m_Height: 5.15
   m_Direction: 1
-  m_Center: {x: 0, y: 1.32, z: 0}
+  m_Center: {x: 0, y: 1.54, z: 0}
 --- !u!1 &174123366909221764
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,7 +548,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 4835078630258379571, guid: 4c6fc6bbf7e439c48827c35774dc8df9, type: 3}
+  - {fileID: 2100000, guid: 1058c44b92c344848930f8e8b77adcd0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -957,7 +961,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -370213735258323901, guid: 4c6fc6bbf7e439c48827c35774dc8df9, type: 3}
+  - {fileID: 2100000, guid: 6f1f1d12c0044cc41a2ecf4812e0feac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

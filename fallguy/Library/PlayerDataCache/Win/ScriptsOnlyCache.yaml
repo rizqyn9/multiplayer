@@ -30,10 +30,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -89,7 +87,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1750}
     - Class: 114
-      Script: {instanceID: 1930}
+      Script: {instanceID: 1928}
     - Class: 114
       Script: {instanceID: 1992}
     - Class: 114
@@ -107,29 +105,29 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 2772}
     - Class: 114
-      Script: {instanceID: 3598}
+      Script: {instanceID: 3404}
     - Class: 114
-      Script: {instanceID: 3716}
+      Script: {instanceID: 3474}
     - Class: 114
-      Script: {instanceID: 3798}
+      Script: {instanceID: 3602}
     - Class: 114
-      Script: {instanceID: 3894}
+      Script: {instanceID: 3720}
     - Class: 114
-      Script: {instanceID: 4030}
+      Script: {instanceID: 3802}
     - Class: 114
-      Script: {instanceID: 4050}
+      Script: {instanceID: 3898}
     - Class: 114
-      Script: {instanceID: 4144}
+      Script: {instanceID: 4034}
     - Class: 114
-      Script: {instanceID: 4202}
+      Script: {instanceID: 4054}
     - Class: 114
-      Script: {instanceID: 4332}
+      Script: {instanceID: 4148}
+    - Class: 114
+      Script: {instanceID: 4206}
     - Class: 114
       Script: {instanceID: 4336}
     - Class: 114
-      Script: {instanceID: 26858}
-    - Class: 114
-      Script: {instanceID: 36550}
+      Script: {instanceID: 4340}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
@@ -815,6 +813,12 @@ ScriptsOnlyBuild:
     className: EventTrigger
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DetectChild
+  - hash:
+      serializedVersion: 2
       Hash: 55f8c6238de35a22ccf4e5ffe39aa1ac
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.RigidbodyPhysics
@@ -837,6 +841,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: ActivationTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 30d47a5516a5be69564cf6ac2671a074
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: UI
   - hash:
       serializedVersion: 2
       Hash: c3d3430df9e3ea95e3e3d587961390fb
@@ -1203,18 +1213,6 @@ ScriptsOnlyBuild:
     assemblyName: Mirror.Examples.dll
     namespaceName: Mirror.Examples.NetworkRoom
     className: NetworkRoomPlayerExt
-  - hash:
-      serializedVersion: 2
-      Hash: 30d47a5516a5be69564cf6ac2671a074
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: UI
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: DetectChild
   platform: 5
   scenePathNames:
   - Assets/Scene/Map1.unity

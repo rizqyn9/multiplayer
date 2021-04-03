@@ -11,13 +11,16 @@ public class Rotator : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        if (obstacle1)
+        if (MovableObs.ready)
         {
-            transform.Rotate(0f, 0f, speed * Time.deltaTime / 0.01f, Space.Self);
-        }
-        else if (obstacle2)
-        {
-            transform.Rotate(0f, speed * Time.deltaTime / 0.01f, 0f);
+            if (obstacle1)
+            {
+                transform.Rotate(0f, 0f, speed * Time.deltaTime / 0.01f, Space.Self);
+            }
+            else if (obstacle2)
+            {
+                transform.Rotate(0f, speed * Time.deltaTime / 0.01f, 0f);
+            }
         }
     }
 }

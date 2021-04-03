@@ -14,19 +14,30 @@ public class ClientInstance : NetworkBehaviour
     private NetworkIdentity _cameraprefab = null;
 
     [SerializeField]
+    private NetworkIdentity _DustTrigger = null;
+
+    [SerializeField]
     private NetworkIdentity _indicatoritemSpawn = null;
 
     [SerializeField]
     private NetworkIdentity _KillZone = null;
+
+    [SerializeField]
+    private NetworkIdentity dust = null;
 
     /*private GameObject currentPlayer;
     private GameObject currentCamera;
     private Transform startPoint;*/
 
     public Vector3 currenctCheckPoint;
+    private GameObject rr;
 
     private Transform PlayerParent;
     private Transform CameraParent;
+
+    private bool istrue;
+    private bool ishave;
+    private bool isis = false;
 
     public override void OnStartServer()
     {
@@ -50,10 +61,28 @@ public class ClientInstance : NetworkBehaviour
 
     [Client]
     public void hasautorry(NetworkIdentity item, NetworkIdentity player)
+
     {
         if (!hasAuthority) return;
         changeAuthory(item, player);
         Debug.Log("wahyu");
+    }
+
+    [Client]
+    public void tt(NetworkIdentity vfvfvfvfvfvf)
+
+    {
+        if (!hasAuthority) return;
+        /* GameObject df = gameObject.transform.GetChild(6).gameObject;
+         NetworkIdentity ch = df.GetComponent<NetworkIdentity>();*/
+        NetworkIdentity fdfdfdfdddf = GetComponent<NetworkIdentity>();
+        tt(vfvfvfvfvfvf, fdfdfdfdddf);
+    }
+
+    [Command]
+    public void tt(NetworkIdentity xxcxcxccxcxcxc, NetworkIdentity vcvcvcvcvcvcvc)
+    {
+        xxcxcxccxcxcxc.AssignClientAuthority(vcvcvcvcvcvcvc.connectionToClient);
     }
 
     [Command]
@@ -74,19 +103,10 @@ public class ClientInstance : NetworkBehaviour
         NetworkServer.Spawn(kz2, base.connectionToClient);
 
         GameObject cam = Instantiate(_cameraprefab.gameObject, transform.position, Quaternion.identity);
-        GameObject rr = Instantiate(_playerPrefab.gameObject, transform.position, Quaternion.identity);
+        rr = Instantiate(_playerPrefab.gameObject, transform.position, Quaternion.identity);
 
         NetworkServer.Spawn(cam, base.connectionToClient);
         NetworkServer.Spawn(rr, base.connectionToClient);
-
-        /*  currentCamera = cam.gameObject;
-          currentPlayer = rr.gameObject;*/
-    }
-
-    [Client]
-    public void Spawndd()
-    {
-        Debug.Log("Sdadfffff");
     }
 
     /*[ClientCallback]
@@ -100,6 +120,46 @@ public class ClientInstance : NetworkBehaviour
         NetworkServer.Spawn(cam, base.connectionToClient);
         NetworkServer.Spawn(rr, base.connectionToClient);
     }*/
+
+    private void Update()
+    {
+        if (istrue && isis == false && ishave == false)
+        {
+            if (!hasAuthority) return;
+            Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+            GameObject FF = GameObject.FindGameObjectWithTag("Player").gameObject;
+            NetworkIdentity CV = FF.GetComponent<NetworkIdentity>();
+            isis = true;
+
+            spawn(player, CV);
+        }
+    }
+
+    [Command]
+    public void spawn(Transform pp, NetworkIdentity OPOPO)
+    {
+        Spawnn(pp, OPOPO);
+    }
+
+    [ClientRpc]
+    public void Spawnn(Transform bb, NetworkIdentity BNM)
+    {
+        Vector3 pos = new Vector3(bb.position.x, 6.8f, bb.position.z);
+        GameObject fuss = Instantiate(dust.gameObject, pos, bb.rotation, bb);
+
+        NetworkIdentity gb = fuss.GetComponent<NetworkIdentity>();
+
+        /*ccccc(gb, BNM);*/
+        /* Instantiate(dust.gameObject, pos, bb.rotation, bb);*/
+
+        ishave = true;
+    }
+
+    [Command]
+    public void ccccc(NetworkIdentity g, NetworkIdentity BM)
+    {
+        g.AssignClientAuthority(BM.connectionToClient);
+    }
 
     [Command]
     private void ChangeTag()
@@ -190,5 +250,7 @@ public class ClientInstance : NetworkBehaviour
                 }
             }
         }
+
+        istrue = true;
     }
 }
